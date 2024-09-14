@@ -91,14 +91,9 @@ const updateTickets = (ticketCont,id) => {
 const filterTickets = (event) => {
     let filterTickets = taskArr.filter(tickets => tickets.color === event.target.classList[1]);
     queryAll('.ticket-cont').forEach((item) => {
-        item.style.display = 'none';
+        item.remove();
     });
-    if (filterTickets.length !== 0) {
-        query('.error').style.display = 'none';
-        renderTickets(filterTickets);
-    }else {
-        query('.error').style.display = 'block';
-    }
+    renderTickets(filterTickets);
 };
 
 // add tickets to localStorage
